@@ -17,6 +17,19 @@ const string DATA_PATH = "codes.txt";
 const int OPERATIONS = 4;
 const int DATA_STRUCTURES = 3;
 
+// Function prototypes
+template<typename T>
+long long read(T dataStructure);
+
+template<typename T>
+long long sorting(T dataStructure);
+
+template<typename T>
+long long insertion(T dataStructure);
+
+template<typename T>
+long long deletion(T dataStructure);
+
 // Main function
 int main()
 {
@@ -29,7 +42,9 @@ int main()
     set<string> s;
 
     // Create arrays to store the time
-    long long vectorTime
+    long long vectorTimes[OPERATIONS];
+    long long listTimes[OPERATIONS];
+    long long setTimes[OPERATIONS];
 
     // Example loop to measure
     for(int i = 0; i < 1000000; ++i)
@@ -46,5 +61,35 @@ int main()
     // Output the duration in milliseconds
     std::cout << "Time taken: " << duration.count() << " milliseconds\n";
 
+    return 0;
+}
+
+// Function implementations
+template<typename T>
+long long read(T dataStructure)
+{
+    // Create a file stream
+    ifstream fin;
+    fin.open(DATA_PATH);
+
+       
+    return 0;
+}
+
+template<typename T>
+long long sorting(T dataStructure)
+{
+    return 0;
+}
+
+template<typename T>
+long long insertion(T dataStructure)
+{
+    return 0;
+}
+
+template<typename T>
+long long deletion(T dataStructure)
+{
     return 0;
 }
