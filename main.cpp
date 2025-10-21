@@ -3,21 +3,38 @@
 
 // Libraries
 #include <iostream>
+#include <fstream>
 #include <chrono>
 #include <vector>
+#include <list>
+#include <set>
+#include <string>
 using namespace std;
 using namespace std::chrono;
 
+// Constants
+const string DATA_PATH = "codes.txt";
+const int OPERATIONS = 4;
+const int DATA_STRUCTURES = 3;
+
 // Main function
-int main() {
+int main()
+{
     // Start timing
     auto start = high_resolution_clock::now();
 
+    // Create data structures to race
+    vector<string> v;
+    list<string> l;
+    set<string> s;
+
+    // Create arrays to store the time
+    long long vectorTime
+
     // Example loop to measure
-    vector<int> numbers;
     for(int i = 0; i < 1000000; ++i)
     {
-        numbers.push_back(i);
+        //numbers.push_back(i);
     }
 
     // End timing
