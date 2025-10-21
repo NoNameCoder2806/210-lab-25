@@ -72,7 +72,8 @@ long long read(T dataStructure)
     ifstream fin;
     fin.open(DATA_PATH);
 
-       
+    // Read the data and insert it into the data structure
+    
     return 0;
 }
 
