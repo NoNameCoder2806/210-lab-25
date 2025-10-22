@@ -24,20 +24,20 @@ const int DATA_STRUCTURES = 3;
 template<typename T>
 long long read(T& dataStructure);
 
-template<typename T>
-long long sort(T dataStructure, type t);
+void insertElement(vector<string>& v, const string& str);
+void insertElement(list<string>& l, const string& str);
+void insertElement(set<string>& s, const string& str);
+
+long long sort(vector<string> dataStructure);
+long long sort(list<string> dataStructure);
+long long sort(set<string> dataStructure);
+
 
 template<typename T>
 long long insertion(T dataStructure, type t);
 
 template<typename T>
 long long deletion(T dataStructure, type t);
-
-// Helper function overloads
-void insertElement(vector<string>& v, const string& str);
-void insertElement(list<string>& l, const string& str);
-void insertElement(set<string>& s, const string& str);
-
 
 // Main function
 int main()
@@ -132,10 +132,20 @@ void insertElement(set<string>& s, const string& str)
     s.insert(str);
 }
 
-template<typename T>
-long long sort(T dataStructure, type t)
+long long sort(vector<string> dataStructure)
 {
     return 0;
+}
+
+long long sort(list<string> dataStructure)
+{
+    return 0;
+}
+
+long long sort(set<string> dataStructure)
+{
+    // Return -1 for sets
+    return -1;
 }
 
 template<typename T>
