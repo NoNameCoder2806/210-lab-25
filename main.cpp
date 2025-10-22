@@ -35,8 +35,9 @@ long long insert(vector<string>& v);
 long long insert(list<string>& l);
 long long insert(set<string>& s);
 
-template<typename T>
-long long deletion(T dataStructure, type t);
+long long deletion(vector<string>& v);
+long long deletion(list<string>& l);
+long long deletion(set<string>& s);
 
 // Main function
 int main()
@@ -55,28 +56,30 @@ int main()
     long long setTimes[OPERATIONS];
 
     // Reading the data
-    cout << "Vector: " << read(v) << endl;
-    cout << "List:   " << read(l) << endl;
-    cout << "Set:    " << read(s) << endl;
+    vectorTimes[0] = read(v);
+    listTimes[0] = read(l);
+    setTimes[0] = read(s);
 
     // Sort the data
-    cout << "Vector: " << sort(v) << endl;
-    cout << "List:   " << sort(l) << endl;
-    cout << "Set:    " << sort(s) << endl;
+    vectorTimes[1] = sort(v);
+    listTimes[1] = sort(l);
+    setTimes[1] = sort(s);
 
-    // Insert the element
-    cout << "Vector: " << insert(v) << endl;
-    cout << "List:   " << insert(l) << endl;
-    cout << "Set:    " << insert(s) << endl;
+    // Insert the element into the middle
+    vectorTimes[2] = insert(v);
+    listTimes[2] = insert(l);
+    setTimes[2] = insert(s);
 
-    // End timing
-    auto end = high_resolution_clock::now();
+    // Delete the middle element
+    vectorTimes[3] = deletion(v);
+    listTimes[3] = deletion(l);
+    setTimes[3] = deletion(s);
 
-    // Calculate duration
-    auto duration = duration_cast<milliseconds>(end - start);
-
-    // Output the duration in milliseconds
-    std::cout << "Time taken: " << duration.count() << " milliseconds\n";
+    // Display the race results
+    for (int i = 0; i < OPERATIONS; i++)
+    {
+        
+    }
 
     return 0;
 }
@@ -289,23 +292,59 @@ long long insert(set<string>& s)
     return duration_cast<microseconds>(end - start).count();
 }
 
-template<typename T>
-long long deletion(T dataStructure, type t)
-{
-    return 0;
-}
-
 long long deletion(vector<string>& v)
 {
-    return 0;
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Use erase() member function for vector and pass in the middle position
+    v.erase(v.begin() + v.size() / 2);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
 long long deletion(list<string>& l)
 {
-    return 0;
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Create an iterator
+    auto it = l.begin();
+
+    // Advance the iterator to the middle position
+    advance(it, l.size() / 2);
+
+    // Use erase() member function for sets
+    l.erase(it);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
 long long deletion(set<string>& s)
 {
-    return 0;
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Create an iterator
+    auto it = s.begin();
+
+    // Advance the iterator to the middle position
+    advance(it, s.size() / 2);
+
+    // Use erase() member function for sets
+    s.erase(it);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
