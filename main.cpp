@@ -24,6 +24,8 @@ const int DATA_STRUCTURES = 3;
 template<typename T>
 long long read(T& dataStructure, type t);
 
+void insertElement()
+
 template<typename T>
 long long sort(T dataStructure, type t);
 
@@ -114,7 +116,7 @@ long long read(T& dataStructure, type t)
     auto end = high_resolution_clock::now();
 
     // Calculate duration and return the result
-    return duration_cast<milliseconds>(end - start);
+    return duration_cast<milliseconds>(end - start).count();
 }
 
 template<typename T>
