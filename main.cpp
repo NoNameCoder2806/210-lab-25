@@ -4,6 +4,7 @@
 // Libraries
 #include <iostream>
 #include <algorithm>
+#include <iomanip>
 #include <fstream>
 #include <chrono>
 #include <vector>
@@ -21,6 +22,7 @@ const string DATA_PATH = "codes.txt";
 const int OPERATIONS = 4;
 const int DATA_STRUCTURES = 3;
 const string INSERT_ELEMENT = "TESTCODE";
+const int FIELD_SIZE = 10;
 
 // Function prototypes
 long long read(vector<string>& v);
@@ -55,6 +57,10 @@ int main()
     long long listTimes[OPERATIONS];
     long long setTimes[OPERATIONS];
 
+    v.clear();
+    l.clear();
+    s.clear();
+
     // Reading the data
     vectorTimes[0] = read(v);
     listTimes[0] = read(l);
@@ -75,10 +81,43 @@ int main()
     listTimes[3] = deletion(l);
     setTimes[3] = deletion(s);
 
+    // Display a header
+    cout << setw(FIELD_SIZE) << right << "Operation";
+    cout << setw(FIELD_SIZE) << right << "Vector";
+    cout << setw(FIELD_SIZE) << right << "List";
+    cout << setw(FIELD_SIZE) << right << "Set";
+    cout << endl;
+
     // Display the race results
     for (int i = 0; i < OPERATIONS; i++)
     {
-        
+        // Display the operation
+        if (i == 0)
+        {
+            // Read operation
+            cout << setw(FIELD_SIZE) << right << "Read";
+        }
+        else if (i == 1)
+        {
+            // Sort operation
+            cout << setw(FIELD_SIZE) << right << "Sort";
+        }
+        else if (i == 2)
+        {
+            // Insert operation
+            cout << setw(FIELD_SIZE) << right << "Insert";
+        }
+        else
+        {
+            // Delete operation
+            cout << setw(FIELD_SIZE) << right << "Delete";
+        }
+
+        // Display the time for each operation
+        cout << setw(FIELD_SIZE) << right << vectorTimes[i];
+        cout << setw(FIELD_SIZE) << right << listTimes[i];
+        cout << setw(FIELD_SIZE) << right << setTimes[i];
+        cout << endl;
     }
 
     return 0;

@@ -4,6 +4,8 @@
         "vector": "cpp",
         "ostream": "cpp",
         "list": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "algorithm": "cpp",
+        "iomanip": "cpp"
     }
 }
