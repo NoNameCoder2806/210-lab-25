@@ -13,7 +13,7 @@ using namespace std;
 using namespace std::chrono;
 
 // Enum class
-enum class dataStructureType{VECTOR, LIST, SET};
+enum class type{VECTOR, LIST, SET};
 
 // Constants
 const string DATA_PATH = "codes.txt";
@@ -22,16 +22,16 @@ const int DATA_STRUCTURES = 3;
 
 // Function prototypes
 template<typename T>
-long long read(T dataStructure, dataStructureType type);
+long long read(T& dataStructure, type t);
 
 template<typename T>
-long long sorting(T dataStructure, dataStructureType type);
+long long sort(T dataStructure, type t);
 
 template<typename T>
-long long insertion(T dataStructure, dataStructureType type);
+long long insertion(T dataStructure, type t);
 
 template<typename T>
-long long deletion(T dataStructure, dataStructureType type);
+long long deletion(T dataStructure, type t);
 
 // Main function
 int main()
@@ -49,11 +49,10 @@ int main()
     long long listTimes[OPERATIONS];
     long long setTimes[OPERATIONS];
 
-    // Example loop to measure
-    for(int i = 0; i < 1000000; ++i)
-    {
-        //numbers.push_back(i);
-    }
+    // Reading the data
+    cout << "Vector: " << read(v, type::VECTOR) << endl;
+    cout << "List:   " << read(l, type::LIST) << endl;
+    cout << "Set:    " << read(s, type::SET) << endl;
 
     // End timing
     auto end = high_resolution_clock::now();
@@ -69,7 +68,7 @@ int main()
 
 // Function implementations
 template<typename T>
-long long read(T dataStructure, dataStructureType type)
+long long read(T& dataStructure, type t)
 {
     // Create a file stream
     ifstream fin;
@@ -92,7 +91,7 @@ long long read(T dataStructure, dataStructureType type)
     auto start = high_resolution_clock::now();
 
     // Check for the data structure type
-    if (type == VECTOR || type == LIST)
+    if (t == type::VECTOR || t == type::LIST)
     {
         // Read the data
         while (getline(fin, line))
@@ -101,7 +100,7 @@ long long read(T dataStructure, dataStructureType type)
             dataStructure.push_back(line);
         }
     }
-    else if (type == SET)
+    else if (t == type::SET)
     {
         // Read the data
         while (getline(fin, line))
@@ -110,24 +109,28 @@ long long read(T dataStructure, dataStructureType type)
             dataStructure.insert(line);
         }
     }
-    
-    return 0;
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<milliseconds>(end - start);
 }
 
 template<typename T>
-long long sorting(T dataStructure, dataStructureType type)
+long long sort(T dataStructure, type t)
 {
     return 0;
 }
 
 template<typename T>
-long long insertion(T dataStructure, dataStructureType type)
+long long insertion(T dataStructure, type t)
 {
     return 0;
 }
 
 template<typename T>
-long long deletion(T dataStructure, dataStructureType type)
+long long deletion(T dataStructure, type t)
 {
     return 0;
 }
