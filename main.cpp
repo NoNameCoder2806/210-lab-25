@@ -12,6 +12,9 @@
 using namespace std;
 using namespace std::chrono;
 
+// Enum class
+enum class dataStructureType{VECTOR, LIST, SET};
+
 // Constants
 const string DATA_PATH = "codes.txt";
 const int OPERATIONS = 4;
