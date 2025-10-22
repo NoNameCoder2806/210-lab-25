@@ -31,8 +31,9 @@ long long sort(vector<string>& v);
 long long sort(list<string>& l);
 long long sort(set<string>& s);
 
-template<typename T>
-long long insert(T dataStructure, type t);
+long long insert(vector<string>& v);
+long long insert(list<string>& l);
+long long insert(set<string>& s);
 
 template<typename T>
 long long deletion(T dataStructure, type t);
@@ -216,7 +217,7 @@ long long sort(list<string>& l)
     // Start timing
     auto start = high_resolution_clock::now();
 
-    // Use sort() member function
+    // Use sort() member function for lists
     l.sort();
 
     // End timing
@@ -228,21 +229,46 @@ long long sort(list<string>& l)
 
 long long sort(set<string>& s)
 {
-    // Return -1 for sets
+    // Return -1 for sets because sets are sorted
     return -1;
 }
 
-template<typename T>
-long long insert(T dataStructure, type t)
-{
-    return 0;
-}
-
-long long insert(set<string> s)
+long long insert(vector<string>& v)
 {
     // Start timing
     auto start = high_resolution_clock::now();
 
+    // Use insert() member function for vector and pass in the middle position
+    v.insert(v.begin() + v.size() / 2, INSERT_ELEMENT);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
+}
+
+long long insert(list<string>& l)
+{
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Use insert() member function for sets
+    s.insert(INSERT_ELEMENT);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
+}
+
+long long insert(set<string>& s)
+{
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Use insert() member function for sets
     s.insert(INSERT_ELEMENT);
 
     // End timing
