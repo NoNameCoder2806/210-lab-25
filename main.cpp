@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 23 | Dat Hoang Vien
+// COMSC-210 | Lab 25 | Dat Hoang Vien
 // IDE used: Visual Studio Code
 
 // Libraries
@@ -268,7 +268,14 @@ long long read(set<string>& s)
     return duration_cast<microseconds>(end - start).count();
 }
 
-
+/*
+    sort()
+    Calculate the time to sort all elements in a vector
+    Arguments: 
+        - v: a reference to a string vector
+    Return:
+        - time in microseconds
+*/
 long long sort(vector<string>& v)
 {
     // Start timing
@@ -284,6 +291,14 @@ long long sort(vector<string>& v)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    sort()
+    Calculate the time to sort all elements in a list
+    Arguments: 
+        - l: a reference to a string list
+    Return:
+        - time in microseconds
+*/
 long long sort(list<string>& l)
 {
     // Start timing
@@ -299,12 +314,28 @@ long long sort(list<string>& l)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    sort()
+    Returns -1 because sets are automatically sorted
+    Arguments: 
+        - s: a reference to a string set
+    Return:
+        - -1
+*/
 long long sort(set<string>& s)
 {
     // Return -1 for sets because sets are sorted
     return -1;
 }
 
+/*
+    insert()
+    Insert the element INSERT_ELEMENT into the middle of a vector
+    Arguments:
+        - v: a reference to a string vector
+    Return:
+        - time in microseconds
+*/
 long long insert(vector<string>& v)
 {
     // Start timing
@@ -320,6 +351,14 @@ long long insert(vector<string>& v)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    insert()
+    Insert the element INSERT_ELEMENT into the middle of a list
+    Arguments:
+        - l: a reference to a string list
+    Return:
+        - time in microseconds
+*/
 long long insert(list<string>& l)
 {
     // Start timing
@@ -341,6 +380,14 @@ long long insert(list<string>& l)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    insert()
+    Insert the element INSERT_ELEMENT into a set
+    Arguments:
+        - s: a reference to a string set
+    Return:
+        - time in microseconds
+*/
 long long insert(set<string>& s)
 {
     // Start timing
@@ -356,6 +403,14 @@ long long insert(set<string>& s)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    deletion()
+    Delete the middle element of a vector
+    Arguments:
+        - v: a reference to a string vector
+    Return:
+        - time in microseconds
+*/
 long long deletion(vector<string>& v)
 {
     // Start timing
@@ -371,6 +426,14 @@ long long deletion(vector<string>& v)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    deletion()
+    Delete the middle element of a list
+    Arguments:
+        - l: a reference to a string list
+    Return:
+        - time in microseconds
+*/
 long long deletion(list<string>& l)
 {
     // Start timing
@@ -392,6 +455,14 @@ long long deletion(list<string>& l)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    deletion()
+    Delete the middle element of a set
+    Arguments:
+        - s: a reference to a string set
+    Return:
+        - time in microseconds
+*/
 long long deletion(set<string>& s)
 {
     // Start timing
