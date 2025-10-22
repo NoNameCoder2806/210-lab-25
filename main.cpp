@@ -3,6 +3,7 @@
 
 // Libraries
 #include <iostream>
+#include <algorithm>
 #include <fstream>
 #include <chrono>
 #include <vector>
@@ -28,10 +29,9 @@ void insertElement(vector<string>& v, const string& str);
 void insertElement(list<string>& l, const string& str);
 void insertElement(set<string>& s, const string& str);
 
-long long sort(vector<string> dataStructure);
-long long sort(list<string> dataStructure);
-long long sort(set<string> dataStructure);
-
+long long sort(vector<string>& v);
+long long sort(list<string>& l);
+long long sort(set<string>& s);
 
 template<typename T>
 long long insertion(T dataStructure, type t);
@@ -59,6 +59,11 @@ int main()
     cout << "Vector: " << read(v) << endl;
     cout << "List:   " << read(l) << endl;
     cout << "Set:    " << read(s) << endl;
+
+    // Sort the data
+    cout << "Vector: " << sort(v) << endl;
+    cout << "List:   " << sort(l) << endl;
+    cout << "Set:    " << sort(s) << endl;
 
     // End timing
     auto end = high_resolution_clock::now();
@@ -132,17 +137,37 @@ void insertElement(set<string>& s, const string& str)
     s.insert(str);
 }
 
-long long sort(vector<string> dataStructure)
+long long sort(vector<string>& v)
 {
-    return 0;
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Use sort() from <algorithm> to sort vectors
+    sort(v.begin(), v.end());
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
-long long sort(list<string> dataStructure)
+long long sort(list<string>& l)
 {
-    return 0;
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Use sort() member function
+    l.sort();
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
-long long sort(set<string> dataStructure)
+long long sort(set<string>& s)
 {
     // Return -1 for sets
     return -1;
