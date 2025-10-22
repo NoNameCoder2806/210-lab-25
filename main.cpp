@@ -20,21 +20,19 @@ enum class type{VECTOR, LIST, SET};
 const string DATA_PATH = "codes.txt";
 const int OPERATIONS = 4;
 const int DATA_STRUCTURES = 3;
+const string INSERT_ELEMENT = "TESTCODE";
 
 // Function prototypes
-template<typename T>
-long long read(T& dataStructure);
-
-void insertElement(vector<string>& v, const string& str);
-void insertElement(list<string>& l, const string& str);
-void insertElement(set<string>& s, const string& str);
+long long read(vector<string>& v);
+long long read(list<string>& l);
+long long read(set<string>& s);
 
 long long sort(vector<string>& v);
 long long sort(list<string>& l);
 long long sort(set<string>& s);
 
 template<typename T>
-long long insertion(T dataStructure, type t);
+long long insert(T dataStructure, type t);
 
 template<typename T>
 long long deletion(T dataStructure, type t);
@@ -183,7 +181,7 @@ long long read(set<string>& s)
     // Read the data
     while (getline(fin, line))
     {
-        // Use push_back() to add element
+        // Use insert() to add element
         s.insert(line);
     }
 
@@ -235,9 +233,23 @@ long long sort(set<string>& s)
 }
 
 template<typename T>
-long long insertion(T dataStructure, type t)
+long long insert(T dataStructure, type t)
 {
     return 0;
+}
+
+long long insert(set<string> s)
+{
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    s.insert(INSERT_ELEMENT);
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
 template<typename T>
