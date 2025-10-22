@@ -124,6 +124,14 @@ int main()
 }
 
 // Function implementations
+/*
+    read()
+    Calculate the time to read and add all the data from DATA_PATH into a vector
+    Arguments: 
+        - v: a reference to a string vector
+    Return:
+        - time in microseconds
+*/
 long long read(vector<string>& v)
 {
     // Create a file stream
@@ -164,6 +172,14 @@ long long read(vector<string>& v)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    read()
+    Calculate the time to read and add all the data from DATA_PATH into a list
+    Arguments: 
+        - l: a reference to a string list
+    Return:
+        - time in microseconds
+*/
 long long read(list<string>& l)
 {
     // Create a file stream
@@ -204,6 +220,14 @@ long long read(list<string>& l)
     return duration_cast<microseconds>(end - start).count();
 }
 
+/*
+    read()
+    Calculate the time to read and add all the data from DATA_PATH into a set
+    Arguments: 
+        - s: a reference to a string set
+    Return:
+        - time in microseconds
+*/
 long long read(set<string>& s)
 {
     // Create a file stream
@@ -243,6 +267,7 @@ long long read(set<string>& s)
     // Calculate duration and return the result
     return duration_cast<microseconds>(end - start).count();
 }
+
 
 long long sort(vector<string>& v)
 {
