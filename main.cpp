@@ -78,8 +78,7 @@ int main()
 }
 
 // Function implementations
-template<typename T>
-long long read(T& dataStructure)
+long long read(vector<string>& v)
 {
     // Create a file stream
     ifstream fin;
@@ -104,8 +103,8 @@ long long read(T& dataStructure)
     // Read the data
     while (getline(fin, line))
     {
-        // Use insertElement() to add the element
-        insertElement(dataStructure, line);
+        // Use push_back() to add element
+        v.push_back(line);
     }
 
     // Clear and close the file stream
@@ -119,22 +118,84 @@ long long read(T& dataStructure)
     return duration_cast<microseconds>(end - start).count();
 }
 
-void insertElement(vector<string>& v, const string& str)
+long long read(list<string>& l)
 {
-    // Use push_back() for vectors
-    v.push_back(str);
+    // Create a file stream
+    ifstream fin;
+    fin.open(DATA_PATH);
+
+    // Check for file stream error
+    if (!fin.is_open())
+    {
+        // Display an error message
+        cerr << "Error: could not open file " << DATA_PATH << endl;
+        
+        // Exit the function
+        return -1;
+    }
+
+    // Create a string variable to store the line data
+    string line = "";
+
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Read the data
+    while (getline(fin, line))
+    {
+        // Use push_back() to add element
+        l.push_back(line);
+    }
+
+    // Clear and close the file stream
+    fin.clear();
+    fin.close();
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
-void insertElement(list<string>& l, const string& str)
+long long read(set<string>& s)
 {
-    // Use push_back() for list
-    l.push_back(str);
-}
+    // Create a file stream
+    ifstream fin;
+    fin.open(DATA_PATH);
 
-void insertElement(set<string>& s, const string& str)
-{
-    // Use insert() for set
-    s.insert(str);
+    // Check for file stream error
+    if (!fin.is_open())
+    {
+        // Display an error message
+        cerr << "Error: could not open file " << DATA_PATH << endl;
+        
+        // Exit the function
+        return -1;
+    }
+
+    // Create a string variable to store the line data
+    string line = "";
+
+    // Start timing
+    auto start = high_resolution_clock::now();
+
+    // Read the data
+    while (getline(fin, line))
+    {
+        // Use push_back() to add element
+        s.insert(line);
+    }
+
+    // Clear and close the file stream
+    fin.clear();
+    fin.close();
+
+    // End timing
+    auto end = high_resolution_clock::now();
+
+    // Calculate duration and return the result
+    return duration_cast<microseconds>(end - start).count();
 }
 
 long long sort(vector<string>& v)
