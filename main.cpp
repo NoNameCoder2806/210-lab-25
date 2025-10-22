@@ -64,6 +64,11 @@ int main()
     cout << "List:   " << sort(l) << endl;
     cout << "Set:    " << sort(s) << endl;
 
+    // Insert the element
+    cout << "Vector: " << insert(v) << endl;
+    cout << "List:   " << insert(l) << endl;
+    cout << "Set:    " << insert(s) << endl;
+
     // End timing
     auto end = high_resolution_clock::now();
 
@@ -253,8 +258,14 @@ long long insert(list<string>& l)
     // Start timing
     auto start = high_resolution_clock::now();
 
+    // Create an iterator
+    auto it = l.begin();
+
+    // Advance the iterator to the middle position
+    advance(it, l.size() / 2);
+
     // Use insert() member function for sets
-    s.insert(INSERT_ELEMENT);
+    l.insert(it, INSERT_ELEMENT);
 
     // End timing
     auto end = high_resolution_clock::now();
@@ -280,6 +291,21 @@ long long insert(set<string>& s)
 
 template<typename T>
 long long deletion(T dataStructure, type t)
+{
+    return 0;
+}
+
+long long deletion(vector<string>& v)
+{
+    return 0;
+}
+
+long long deletion(list<string>& l)
+{
+    return 0;
+}
+
+long long deletion(set<string>& s)
 {
     return 0;
 }
